@@ -15,6 +15,11 @@ public class MainClass {
     
     public static void main(String[] args) {
         
+        /*Condition For Password String.*/
+        /*First letter should not be Digit*/
+        /*Must contain one Capital Letter and one Digit*/
+        /*Must not contain '/' or '\'.*/
+        
         String password;
         
         Scanner sc = new Scanner(System.in);
@@ -24,13 +29,17 @@ public class MainClass {
         
     }
     
-    static boolean checkPassword(String str){
+    static boolean checkPassword(String str){ /*Returns true if password String satisfies all of the conditions else returns false.*/
         
-        if(str.contains("/") || str.contains("\\")){
+        if(str.contains("/") || str.contains("\\") /*Checks string must not contain Forward slash or Backword slash.*/
+          ){
             return false;
         }
         
-        if(Pattern.matches("[a-zA-Z][a-zA-Z0-9]{1,}", str) && Pattern.matches(".+[0-9]+.*", str) && Pattern.matches(".+[A-Z]+.*", str)){
+        if(Pattern.matches("[a-zA-Z][a-zA-Z0-9]{1,}", str) /*Checks first letter is not a Digit.*/
+           && Pattern.matches(".+[0-9]+.*", str) /*Checks String contains one Numeric character.*/
+           && Pattern.matches(".+[A-Z]+.*", str) /*Checks String contains one Upper case letter.*/
+          ){ 
             return true;
         }
         
